@@ -32,54 +32,73 @@ The API is built using **Node.js, Express, TypeScript, and MongoDB (Atlas)**.
 
 ### 1. Install dependencies
 ```bash
-1. npm install
+npm install
+```
 
-2. Environment variables
-
-Create a .env file in the project root:
+### 2. Environment variables
+### Create a .env file in the project root:
+```bash
 PORT=3001
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxx.mongodb.net/transaction_api?retryWrites=true&w=majority&appName=Cluster0
+```
+Replace <username> and <password> with your MongoDB Atlas credentials.
 
-3. Run the server
+### 3. Run the server
+```bash
 npm run dev
+```
 
 Server will start at:
 http://localhost:3001
 
-API Usage
-Create Transaction
+---
 
-POST /api/transactions
+### API Usage
+### Create Transaction
 
+**POST** `/api/transactions`
+```json
 {
   "type": "expense",
   "amount": 45,
   "description": "กาแฟ Cafe Amazon",
   "date": "2024-01-15T08:30:00Z"
 }
+```
+---
 
-Get All Transactions
-GET /api/transactions
+### Get All Transactions
+**GET** `/api/transactions`
 Returns all non-deleted transactions.
 
-Get Transaction by ID
-GET /api/transactions/:id
+---
 
-Update Transaction
-PATCH /api/transactions/:id
+### Get Transaction by ID
+**GET** `/api/transactions/:id`
+
+---
+
+### Update Transaction
+**PATCH** `/api/transactions/:id`
+```json
 {
   "amount": 99,
   "description": "แก้ยอดใหม่"
 }
+```
+---
 
-Soft Delete Transaction
-- DELETE /api/transactions/:id
+### Soft Delete Transaction
+**DELETE** `/api/transactions/:id`
 
-Restore Transaction
-- POST /api/transactions/:id/restore
+---
 
-Design Decisions
+### Restore Transaction
+**POST** `/api/transactions/:id/restore`
 
+---
+
+### Design Decisions
 - Used Express with TypeScript for simplicity and type safety
 - Used MongoDB with Mongoose for flexible schema design
 - Implemented soft delete using deletedAt field to allow data recovery
