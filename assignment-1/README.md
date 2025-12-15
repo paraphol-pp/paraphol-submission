@@ -41,7 +41,7 @@ npm install
 PORT=3001
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxx.mongodb.net/transaction_api?retryWrites=true&w=majority&appName=Cluster0
 ```
-Replace <username> and <password> with your MongoDB Atlas credentials.
+Replace `<username>` and `<password>` with your MongoDB Atlas credentials.
 
 ### 3. Run the server
 ```bash
